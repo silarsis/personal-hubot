@@ -1,0 +1,18 @@
+box: wercker-labs/docker
+build:
+  steps:
+    - script:
+      name: Build on Orchard
+      code: |
+        ./wercker_provision.sh -b
+deploy:
+  steps:
+    - script:
+      name: Restart Orchard
+      code: |
+        ./wercker_provision.sh -r
+  after-steps:
+    - sherzberg/slack-notify:
+      subdomain: littlejohn
+      token: $SLACK_TOKEN
+      channel: general
