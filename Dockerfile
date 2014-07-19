@@ -13,7 +13,6 @@ RUN chmod +x bin/hubot
 RUN npm install
 RUN npm install forever -g
 RUN npm install hubot-slack hubot-flowdock --save
-ADD Procfile /usr/local/opt/hubot/Procfile
 
 # Create hubot system user
 RUN adduser --disabled-password --gecos "" hubot
