@@ -48,6 +48,7 @@ set +x
   ${DOCKER_CMD} rm ${IMAGE_NAME} || echo "could not remove ${IMAGE_NAME} container"
   echo "${DOCKER_CMD} run ${RUN_FLAGS} <environment> --name ${IMAGE_NAME} ${IMAGE_NAME} /usr/local/bin/start.sh"
   ${DOCKER_CMD} run ${RUN_FLAGS} ${VOLUME_FLAG} \
+    -p 8080:80
     -e SLACK_API_URL=${SLACK_API_URL} \
     -e LOGENTRIES_TOKEN=${LOGENTRIES_TOKEN} \
     -e HUBOT_SLACK_TOKEN=${HUBOT_SLACK_TOKEN} \
