@@ -20,7 +20,7 @@ RUN adduser --disabled-password --gecos "" hubot
 
 # Install redis-server and supervisor
 RUN apt-get -qqy install redis-server
-ADD start.sh /usr/local/bin
+ADD start.sh /usr/local/bin/
 
 EXPOSE 8080
 CMD /usr/local/bin/start.sh
